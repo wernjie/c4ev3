@@ -17,6 +17,8 @@ Note: if `make` fails, update the `Makefile` to not use any hardcoded values, or
 
 ### Usage
 
+You can compile and upload C++ code to your EV3 brick by following the instructions below. You may also [view the API Documentation in the wiki](https://gitlab.com/wernjie/c4ev3/wikis/API-Documentation) to get started on writing code.
+
 either: 
 
 - Use the `ev3build`, `ev3buildUpload` or `ev3Upload` scripts. Do not move them. Run them without arguments to see what arguments they take. Feel free to create aliases; they work anywhere as long as they stay where they are.
@@ -39,3 +41,5 @@ ev3duder up "$NAME.rbf" "../prjs/$NAME/$NAME.rbf"            # upload the rbf fi
 #Run
 ev3duder run "../prjs/$NAME/$NAME.rbf"
 ```
+
+
