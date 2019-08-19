@@ -1,0 +1,27 @@
+#!/bin/bash
+
+SCRIPTPATH=$(dirname "$0")
+
+if [[ -z "$1" || -z "$2" ]]; then
+    echo "Please provide input cpp file (\$1) and output binary file (\$2)"
+    exit 1;
+fi
+
+
+(
+command -v arm-c4ev3-linux-gnueabi-g++ >/dev/null 2>&1 &&
+    (
+    echo "** Compiling '$1' into binary '$2'..." && 
+    arm-c4ev3-linux-gnueabi-g++ "$1" -L"$SCRIPTPATH/../EV3-API/API/" -lev3api -I"$SCRIPTPATH/../EV3-API/API/" -static -s -Os -o "$2" && 
+    echo "** Done."
+    ) || exit 1
+)
+||
+(
+command -v arm-none-linux-gnueabi-g++ >/dev/null 2>&1 &&
+    (
+    echo "** Compiling '$1' into binary '$2'..." && 
+    arm-none-linux-gnueabi-g++ "$1" -L"$SCRIPTPATH/../EV3-API/API/" -lev3api -I"$SCRIPTPATH/../EV3-API/API/" -static -s -Os -o "$2" && 
+    echo "** Done."
+    ) || exit 1
+)

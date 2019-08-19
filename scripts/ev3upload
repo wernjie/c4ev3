@@ -1,0 +1,21 @@
+#!/bin/bash
+
+SCRIPTPATH=$(dirname "$0")
+
+if [[ -z "$1" || -z "$2" ]]; then
+    echo "Please provide input binary location (\$1) and destination project name (\$2)"
+    exit 1;
+fi
+
+(
+echo "** Cleaning up if necessary..." &&
+"$SCRIPTPATH/../ev3duder/ev3duder" exec "rm -r ../prjs/c4ev3_$2/" &&
+echo "** Uploading binary '$1' into project '$2'..." &&
+"$SCRIPTPATH/../ev3duder/ev3duder" up "$1" "../prjs/c4ev3_$2/$2" &&
+"$SCRIPTPATH/../ev3duder/ev3duder" mkrbf "../prjs/c4ev3_$2/$2" "$2.rbf" &&
+"$SCRIPTPATH/../ev3duder/ev3duder" up "$2.rbf" "../prjs/c4ev3_$2/$2.rbf" &&
+rm "$2.rbf" && 
+echo "** Attempting to run..." &&
+"$SCRIPTPATH/../ev3duder/ev3duder" run "../prjs/c4ev3_$2/$2.rbf" && 
+echo "** Attempt complete."
+) || exit 1;

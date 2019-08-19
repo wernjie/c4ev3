@@ -1,0 +1,6 @@
+[submodule "ev3duder"]
+	path = ev3duder
+	url = https://github.com/c4ev3/ev3duder.git
+[submodule "EV3-API"]
+	path = EV3-API
+	url = https://github.com/l-yc/EV3-API.git
