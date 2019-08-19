@@ -1,6 +1,6 @@
 # c4ev3
 
-C/C++ for EV3. Improved from [https://github.com/c4ev3/C4EV3.Toolchain/releases](c4ev3).
+C/C++ for EV3. Improved from [https://github.com/c4ev3](c4ev3).
 
 ### Installation
 
