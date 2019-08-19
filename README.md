@@ -4,7 +4,7 @@ C/C++ for EV3. Improved from [https://github.com/c4ev3](c4ev3).
 
 ### Installation
 
-- Clone this repo and enter the repo root directory.
+- Clone this repo with `git clone` and enter the repo root directory.
 - Get the toolchain from [https://github.com/c4ev3/C4EV3.Toolchain/releases](https://github.com/c4ev3/C4EV3.Toolchain/releases)
 - Go ahead and unpack it, then keep it somewhere. You may want to `export PATH='path/to/bin'` directly to the bin folder to be able to easily call the compilers.
 - Link the entire `path/to/toolchain/arm-linux` folder to `/opt/cross/arm-linux` if on macOS, (unconfirmed for linux).
@@ -19,7 +19,7 @@ Note: if `make` fails, update the `Makefile` to not use any hardcoded values, or
 
 either: 
 
-- Use the `ev3build`, `ev3buildUpload` or `ev3Upload` scripts. Do not move them. Feel free to create aliases; they work anywhere.
+- Use the `ev3build`, `ev3buildUpload` or `ev3Upload` scripts. Do not move them. Run them without arguments to see what arguments they take. Feel free to create aliases; they work anywhere as long as they stay where they are.
 
 or:
 
