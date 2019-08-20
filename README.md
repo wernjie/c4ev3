@@ -19,9 +19,27 @@ Note: if `make` fails, update the `Makefile` to not use any hardcoded values, or
 
 You can compile and upload C++ code to your EV3 brick by following the instructions below. You may also [view the API Documentation in the wiki](https://gitlab.com/wernjie/c4ev3/wikis/API-Documentation) to get started on writing code.
 
-either: 
+Here's an example program that displays Hello World on the LCD panel of your EV3.
 
-- Use the `ev3build`, `ev3buildUpload` or `ev3Upload` scripts. Do not move them. Run them without arguments to see what arguments they take. Feel free to create aliases; they work anywhere as long as they stay where they are.
+```
+#include <ev3.h>
+
+int main() {
+    InitEV3();
+    
+    LcdPrintf(0, "Hello World!");
+    
+    while (!ButtonIsDown(BTNEXIT)) {
+        Wait(100);
+    }
+    
+    FreeEV3();
+}
+```
+
+To compile, upload and run your code to ev3, either: 
+
+- Use the `ev3build`, `ev3buildUpload` or `ev3Upload` scripts. Do not move them. Run them without arguments to see what arguments they take. Feel free to create aliases; they work anywhere as long as they stay where they are. 
 
 or:
 
