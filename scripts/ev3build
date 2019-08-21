@@ -11,15 +11,19 @@ fi
 (
 command -v arm-c4ev3-linux-gnueabi-g++ >/dev/null 2>&1 &&
     (
-    echo "** Compiling '$1' into binary '$2'..." && 
-    arm-c4ev3-linux-gnueabi-g++ "$1" -L"$SCRIPTPATH/../EV3-API/API/" -lev3api -I"$SCRIPTPATH/../EV3-API/API/" -static -s -Os -o "$2" && 
-    echo "** Done."
-    ) || exit 1
+        (
+            echo "** Compiling '$1' into binary '$2'..." && 
+            arm-c4ev3-linux-gnueabi-g++ "$1" -L"$SCRIPTPATH/../EV3-API/API/" -lev3api -I"$SCRIPTPATH/../EV3-API/API/" -static -s -Os -o "$2" && 
+            echo "** Done."
+        ) || exit 1
+    )
 ) || (
 command -v arm-none-linux-gnueabi-g++ >/dev/null 2>&1 &&
     (
-    echo "** Compiling '$1' into binary '$2'..." && 
-    arm-none-linux-gnueabi-g++ "$1" -L"$SCRIPTPATH/../EV3-API/API/" -lev3api -I"$SCRIPTPATH/../EV3-API/API/" -static -s -Os -o "$2" && 
-    echo "** Done."
-    ) || exit 1
+        (
+            echo "** Compiling '$1' into binary '$2'..." && 
+            arm-none-linux-gnueabi-g++ "$1" -L"$SCRIPTPATH/../EV3-API/API/" -lev3api -I"$SCRIPTPATH/../EV3-API/API/" -static -s -Os -o "$2" && 
+            echo "** Done."
+        ) || exit 1
+    )
 )
