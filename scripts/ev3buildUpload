@@ -7,4 +7,4 @@ if [[ -z "$1" || -z "$2" ]]; then
     exit 1;
 fi
 
-"$SCRIPTPATH/ev3build" "$1" "./tmp" && "$SCRIPTPATH/ev3upload" "./tmp" "$2" && echo "** Cleaning up..." && rm "./tmp" && echo "** Complete." || exit 1;
+"$SCRIPTPATH/ev3build" "$1" "./tmp" && "$SCRIPTPATH/ev3upload" "./tmp" "$2" && echo "** Cleaning up..." && rm "./tmp" && echo "** Complete." || (rm "./tmp" && exit 1);
