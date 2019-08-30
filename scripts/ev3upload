@@ -9,13 +9,13 @@ fi
 
 (
 echo "** Cleaning up if necessary..." &&
-"$SCRIPTPATH/../ev3duder/ev3duder" exec "rm -r ../prjs/c4ev3_$2/" &&
+"$SCRIPTPATH/../ev3duder/ev3duder" exec "rm -r ../prjs/c4ev3_$2/ 2>&1 >/dev/null" &&
 echo "** Uploading binary '$1' into project '$2'..." &&
 "$SCRIPTPATH/../ev3duder/ev3duder" up "$1" "../prjs/c4ev3_$2/$2" &&
 "$SCRIPTPATH/../ev3duder/ev3duder" mkrbf "../prjs/c4ev3_$2/$2" "$2.rbf" &&
 "$SCRIPTPATH/../ev3duder/ev3duder" up "$2.rbf" "../prjs/c4ev3_$2/$2.rbf" &&
 rm "$2.rbf" && 
-echo "** Attempting to run..." &&
-"$SCRIPTPATH/../ev3duder/ev3duder" run "../prjs/c4ev3_$2/$2.rbf" && 
+#echo "** Attempting to run..." &&
+#"$SCRIPTPATH/../ev3duder/ev3duder" run "../prjs/c4ev3_$2/$2.rbf" && 
 echo "** Attempt complete."
 ) || exit 1;
